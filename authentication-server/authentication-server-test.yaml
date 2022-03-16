@@ -1,0 +1,36 @@
+server:
+    port: 9580
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.154.127:3306/my_data?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: 123456
+
+    #配置页面存放路径
+    thymeleaf:
+        prefix: classpath:/static/
+
+    mvc:
+        view:
+            prefix: /
+            suffix: .html
+#    redis:
+#        host: 127.0.0.1
+#        port: 6379
+eureka:
+#    instance:
+#        prefer-ip-address: true
+
+    client:
+        service-url:
+            #单点模式
+            defaultZone: http://localhost:8180/eureka/
+            #高可用模式
+#            defaultZone: http://peer1:8181/eureka/,http://peer2:8182/eureka/
+
+ribbon:
+    SocketTimeout: 300000
+    ReadTimeout: 300000
+    ConnectTimeout: 300000
